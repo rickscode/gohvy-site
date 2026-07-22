@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: rickscode/gohvy-site
+  branch: main
+
+site_url: https://gohvy.com
+media_folder: images/insights
+public_folder: /images/insights
+
+collections:
+  - name: insights
+    label: Insights
+    folder: insights-src
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Publish Date, name: date, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+      - { label: Description, name: description, widget: string, hint: "One sentence shown on the listing page and in Google results." }
+      - { label: Body, name: body, widget: markdown }

@@ -1,0 +1,12 @@
+{
+  "name": "gohvy-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "GOHVY landing site + Insights",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "marked": "^15.0.0"
+  }
+}

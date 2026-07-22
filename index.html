@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000000'/><text y='.9em' font-size='85' font-family='Arial Black,sans-serif' font-weight='900' fill='%23f5a623' x='10'>G</text></svg>" />
+  <title>GOHVY — High-Intensity Training</title>
+  <meta name="description" content="GOHVY is the training app for serious lifters. One set to failure. Three sessions a week. Maximum mass, minimum gym time." />
+  <link rel="canonical" href="https://gohvy.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GOHVY" />
+  <meta property="og:title" content="GOHVY — High-Intensity Training" />
+  <meta property="og:description" content="One set to failure. Three sessions a week. Maximum mass, minimum gym time." />
+  <meta property="og:url" content="https://gohvy.com/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #000000;
+      --slate:   #0d0d0d;
+      --panel:   #111111;
+      --border:  #1e1e1e;
+      --amber:   #f5a623;
+      --crimson: #c0392b;
+      --white:   #f0ece4;
+      --muted:   #666666;
+      --text:    #c8c4bc;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 2rem;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.12em;
+      color: var(--white);
+    }
+
+    .nav-logo span { color: var(--amber); }
+
+    .nav-cta {
+      display: inline-block;
+      padding: 0.55rem 1.4rem;
+      background: var(--amber);
+      color: var(--black);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+
+    .nav-cta:hover { background: #ffba3f; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+    }
+
+    .nav-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .nav-link:hover { color: var(--amber); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 1.5rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 30%, rgba(245,166,35,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 80% 70%, rgba(192,57,43,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 18vw, 13rem);
+      line-height: 0.9;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 0.2em;
+    }
+
+    .hero-title .hvy {
+      color: var(--amber);
+    }
+
+    .hero-title .line2 {
+      display: block;
+      color: var(--amber);
+      font-size: clamp(1.6rem, 5vw, 3.5rem);
+      letter-spacing: 0.3em;
+      color: var(--muted);
+    }
+
+    .hero-tagline {
+      max-width: 440px;
+      margin: 1.8rem auto 0;
+      padding: 1rem 1.6rem;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--amber);
+      border-right: 3px solid var(--amber);
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.5;
+      color: var(--amber);
+      text-align: center;
+    }
+
+    .hero-sub {
+      max-width: 480px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin: 1.4rem auto 2.8rem;
+    }
+
+    .hero-sub strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .store-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .store-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.9rem 1.6rem;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--white);
+      transition: border-color 0.2s, background 0.2s;
+      min-width: 180px;
+    }
+
+    .store-btn:hover {
+      border-color: var(--amber);
+      background: #161616;
+    }
+
+    .store-btn svg {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+    }
+
+    .store-btn-text {
+      text-align: left;
+    }
+
+    .store-btn-label {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.1rem;
+    }
+
+    .store-btn-name {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .hero-scroll {
+      margin-top: 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--border), transparent);
+    }
+
+    /* ── PROTOCOL SECTION ── */
+    .section {
+      padding: 6rem 1.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      letter-spacing: 0.05em;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-body {
+      font-size: 1rem;
+      color: var(--text);
+      max-width: 540px;
+      line-height: 1.75;
+    }
+
+    /* ── PILLARS GRID ── */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin-top: 3.5rem;
+    }
+
+    .pillar {
+      background: var(--black);
+      padding: 2rem 1.8rem;
+    }
+
+    .pillar-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .pillar-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+    }
+
+    .pillar-body {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: var(--text);
+    }
+
+    .pillar-accent {
+      display: inline-block;
+      margin-top: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: var(--amber);
+    }
+
+    /* ── TRACKS SECTION ── */
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .track-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 1.6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .track-card::before {
+      content: attr(data-track);
+      position: absolute;
+      top: -0.5rem;
+      right: 1rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 5rem;
+      color: rgba(255,255,255,0.03);
+      letter-spacing: 0;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .track-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.5rem;
+    }
+
+    .track-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .track-exercises {
+      list-style: none;
+      font-size: 0.8rem;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .track-exercises li::before {
+      content: '—';
+      margin-right: 0.5rem;
+      color: var(--border);
+    }
+
+    /* ── PROGRESSION BAR SECTION ── */
+    .progression {
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 1.5rem;
+    }
+
+    .progression-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .rep-rules {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .rep-rule {
+      background: var(--panel);
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1.1rem 1.4rem;
+    }
+
+    .rep-badge {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      min-width: 80px;
+      letter-spacing: 0.04em;
+    }
+
+    .rep-badge.up   { color: var(--amber); }
+    .rep-badge.hold { color: var(--text); }
+    .rep-badge.down { color: var(--crimson); }
+
+    .rep-desc {
+      font-size: 0.82rem;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .rep-desc strong { color: var(--white); display: block; font-size: 0.9rem; }
+
+    .code-block {
+      background: var(--black);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      line-height: 2;
+      color: var(--muted);
+      white-space: pre;
+      overflow-x: auto;
+    }
+
+    .code-block .c-amber { color: var(--amber); }
+    .code-block .c-red   { color: var(--crimson); }
+    .code-block .c-white { color: var(--white); }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      text-align: center;
+      padding: 7rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta::before {
+      content: 'GOHVY';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(8rem, 25vw, 20rem);
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.02);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .final-cta .section-eyebrow { margin-bottom: 1.2rem; }
+
+    .final-cta h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      letter-spacing: 0.06em;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 1.2rem;
+    }
+
+    .final-cta p {
+      max-width: 420px;
+      margin: 0 auto 2.5rem;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .section-shoutout {
+      margin-top: 1.5rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.1em;
+      color: var(--amber);
+      opacity: 0.75;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      nav { padding: 1rem 1.2rem; }
+      .progression-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .code-block { font-size: 0.62rem; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">GO<span>HVY</span></div>
+    <div class="nav-links">
+      <a class="nav-link" href="/insights/">Insights</a>
+      <a class="nav-cta" href="https://app.gohvy.com">Start Training</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">High-Intensity Training App</p>
+    <h1 class="hero-title">
+      GO<span class="hvy">HVY</span>
+      <span class="line2">One set. Absolute failure. Guaranteed Results.</span>
+    </h1>
+    <p class="hero-tagline">Not for those who count sets. For those who make sets count.</p>
+    <p class="hero-sub">
+      Three focused sessions a week. One heavy duty set per exercise.
+      No fluff. No gamification. Just progressive overload to maximum mass —
+      with less time in the gym.
+    </p>
+    <div class="store-buttons" id="download">
+      <a href="https://app.gohvy.com" class="store-btn" aria-label="Start training free">
+        <div class="store-btn-text">
+          <span class="store-btn-label">Free 7-day Pro trial</span>
+          <span class="store-btn-name">Start Training Now</span>
+        </div>
+      </a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PILLARS -->
+  <section class="section">
+    <p class="section-eyebrow">The Protocol</p>
+    <h2 class="section-title">Maximum Mass.<br>Minimum Volume.</h2>
+    <p class="section-body">Inspired by the Heavy Duty methodology — the same protocol used to build the most complete physiques in bodybuilding history. GOHVY enforces every principle automatically.</p>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-title">One Set to Failure</div>
+        <p class="pillar-body">Two progressive warm-ups, then one Heavy Duty set pushed to absolute mechanical failure in the 6–8 rep range. No junk volume. No second chances.</p>
+        <span class="pillar-accent">6–8 REP TARGET</span>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title">CNS Rest Lock</div>
+        <p class="pillar-body">One day on, one day off minimum. After a session logs, the app locks the next workout until your central nervous system has recovered. Override if you're ready early.</p>
+        <span class="pillar-accent">AUTO RECOVERY GATE</span>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title">Auto Progression</div>
+        <p class="pillar-body">Hit 8+ reps and the weight goes up next session. Hit 4–5 and you hold. Hit 3 or below and you deload 10%. The engine calculates it automatically.</p>
+        <span class="pillar-accent">CALCULATED PER EXERCISE</span>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title">Interchangeable Splits</div>
+        <p class="pillar-body">Three workout tracks — Shoulders/Chest, Back/Arms, Legs. Complete all three in any order within 7 days. Your schedule, your sequence.</p>
+        <span class="pillar-accent">3 TRACKS / 7-DAY CYCLE</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- TRACKS -->
+  <section class="section">
+    <p class="section-eyebrow">The Split</p>
+    <h2 class="section-title">Three Tracks.<br>Any Order.</h2>
+    <p class="section-body">Select whichever track fits your day. Completed tracks grey out. The week resets automatically once all three are checked off. Three sessions a week — recovery outside the gym does the rest.</p>
+
+    <div class="tracks-grid">
+      <div class="track-card" data-track="A">
+        <p class="track-label">Track A</p>
+        <h3 class="track-name">Shoulders / Chest</h3>
+      </div>
+      <div class="track-card" data-track="B">
+        <p class="track-label">Track B</p>
+        <h3 class="track-name">Back / Arms</h3>
+      </div>
+      <div class="track-card" data-track="C">
+        <p class="track-label">Track C</p>
+        <h3 class="track-name">Legs</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRESSION ENGINE -->
+  <div class="progression">
+    <div class="progression-inner">
+      <div>
+        <p class="section-eyebrow">Progression Engine</p>
+        <h2 class="section-title">The Weight Moves With You</h2>
+        <p class="section-body" style="margin-bottom: 0;">Every rep you log feeds the engine. GOHVY calculates your next session target automatically — no manual input required.</p>
+
+        <div class="rep-rules">
+          <div class="rep-rule">
+            <div class="rep-badge up">≥ 8 REPS</div>
+            <div class="rep-desc">
+              <strong>Add Weight</strong>
+              Increase by 2.5–5kg next session. You're ahead of the target.
+            </div>
+          </div>
+          <div class="rep-rule">
+            <div class="rep-badge hold">4–5 REPS</div>
+            <div class="rep-desc">
+              <strong>Hold Weight</strong>
+              Maintain current load. Muscle needs to catch up to the demand.
+            </div>
+          </div>
+          <div class="rep-rule">
+            <div class="rep-badge down">≤ 3 REPS</div>
+            <div class="rep-desc">
+              <strong>Deload 10%</strong>
+              Drop and recover. Joints and CNS take priority. Come back stronger.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="code-block"><span class="c-amber">[ SQUATS — HEAVY DUTY SET ]</span>
+
+  Warm-Up 1  <span class="c-white">60 kg × 12</span>  ✓
+  Warm-Up 2  <span class="c-white">100 kg × 10</span> ✓
+  Heavy Duty <span class="c-white">140 kg × __</span>  <span class="c-red">LOG TO FAILURE</span>
+
+  ─────────────────────────────────
+  <span class="c-amber">[REACHED ABSOLUTE FAILURE]</span>
+
+  [Swap Equipment]
+  <span class="c-red">[SKIP — MUSCLE COOKED]</span>
+  ─────────────────────────────────
+  Next session target: <span class="c-white">AUTO-CALCULATED</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <p class="section-eyebrow">Available Now</p>
+    <h2>Train Hard.<br>Recover Harder.</h2>
+    <p>Seven-day free GOHVY Pro trial with the AI Coach included. Training stays free forever — Pro unlocks Workout Analysis and the AI Coach. No upsells. No subscriptions you forget about.</p>
+    <div class="store-buttons">
+      <a href="https://app.gohvy.com" class="store-btn" aria-label="Start training free">
+        <div class="store-btn-text">
+          <span class="store-btn-label">Free 7-day Pro trial</span>
+          <span class="store-btn-name">Start Training Now</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">GOHVY</div>
+    <p class="footer-copy">© 2026 GOHVY. All rights reserved. gohvy.com · <a href="/insights/" style="color: var(--muted);">Insights</a> · <a href="/privacy" style="color: var(--muted);">Privacy</a> · <a href="/terms" style="color: var(--muted);">Terms</a></p>
+  </footer>
+
+</body>
+</html>
