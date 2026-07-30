@@ -415,6 +415,20 @@
       margin-bottom: 1rem;
     }
 
+    .advanced-track {
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .advanced-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
     .tracks-footnote {
       margin-top: 1rem;
       font-family: 'JetBrains Mono', monospace;
@@ -666,7 +680,7 @@
 
   <!-- TRACKS -->
   <section class="section">
-    <p class="section-eyebrow">The Split</p>
+    <p class="section-eyebrow">Workout Tracks</p>
     <h2 class="section-title">Three Workouts.<br>Any Order.</h2>
     <p class="section-body">Select whichever workout fits your day. Completed workouts grey out. The week resets automatically once all three are checked off. Three sessions a week — recovery outside the gym does the rest.</p>
 
@@ -688,6 +702,35 @@
       </div>
     </div>
     <p class="tracks-footnote">*Suggested days &mdash; complete all three in any order that fits your week.</p>
+
+    <div class="advanced-track">
+      <p class="section-eyebrow">GOHVY Advanced</p>
+      <h3 class="advanced-title">The 4-Day Track</h3>
+      <p class="section-body">For experienced lifters &mdash; or after three months on GOHVY. A fixed-cadence split inspired by Dorian Yates: two days on, one off, two on, weekend off. Same rules, higher demand: one heavy duty set to failure per exercise, progression calculated for you.</p>
+      <div class="tracks-grid">
+        <div class="track-card" data-track="1">
+          <img class="track-icon" src="images/tracks/shoulder.png" alt="Shoulders and triceps workout icon" loading="lazy" width="48" height="48" />
+          <p class="track-label">Monday</p>
+          <h3 class="track-name">Shoulders / Triceps</h3>
+        </div>
+        <div class="track-card" data-track="2">
+          <img class="track-icon" src="images/tracks/back.png" alt="Back and forearms workout icon" loading="lazy" width="48" height="48" />
+          <p class="track-label">Tuesday</p>
+          <h3 class="track-name">Back / Forearms</h3>
+        </div>
+        <div class="track-card" data-track="3">
+          <img class="track-icon" src="images/tracks/shoulder.png" alt="Chest and biceps workout icon" loading="lazy" width="48" height="48" />
+          <p class="track-label">Thursday</p>
+          <h3 class="track-name">Chest / Biceps</h3>
+        </div>
+        <div class="track-card" data-track="4">
+          <img class="track-icon" src="images/tracks/legs.png" alt="Legs workout icon" loading="lazy" width="48" height="48" />
+          <p class="track-label">Friday</p>
+          <h3 class="track-name">Legs</h3>
+        </div>
+      </div>
+      <p class="tracks-footnote">Wednesday and the weekend are rest days &mdash; recovery is part of the program.</p>
+    </div>
   </section>
 
   <!-- PROGRESSION ENGINE -->
