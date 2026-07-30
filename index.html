@@ -4,14 +4,54 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000000'/><text y='.9em' font-size='85' font-family='Arial Black,sans-serif' font-weight='900' fill='%23f5a623' x='10'>G</text></svg>" />
-  <title>GOHVY — High-Intensity Training</title>
-  <meta name="description" content="GOHVY is the training app for serious lifters. One set to failure. Three sessions a week. Maximum mass, minimum gym time." />
+  <title>GOHVY — Heavy Duty Training App | High-Intensity Training (HIT)</title>
+  <meta name="description" content="GOHVY is the heavy duty training app for serious lifters. Mike Mentzer-inspired high-intensity training: one set to failure, three sessions a week, automatic progression. Free forever." />
   <link rel="canonical" href="https://gohvy.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="GOHVY" />
-  <meta property="og:title" content="GOHVY — High-Intensity Training" />
-  <meta property="og:description" content="One set to failure. Three sessions a week. Maximum mass, minimum gym time." />
+  <meta property="og:title" content="GOHVY — Heavy Duty Training App" />
+  <meta property="og:description" content="High-intensity training done right: one set to failure, three sessions a week, automatic progression. Free forever." />
   <meta property="og:url" content="https://gohvy.com/" />
+  <meta property="og:image" content="https://gohvy.com/images/og-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="GOHVY — Heavy Duty Training App" />
+  <meta name="twitter:description" content="High-intensity training done right: one set to failure, three sessions a week, automatic progression. Free forever." />
+  <meta name="twitter:image" content="https://gohvy.com/images/og-card.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://gohvy.com/#org",
+        "name": "GOHVY",
+        "url": "https://gohvy.com/",
+        "logo": "https://gohvy.com/images/og-card.png"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://gohvy.com/#website",
+        "name": "GOHVY",
+        "url": "https://gohvy.com/",
+        "publisher": { "@id": "https://gohvy.com/#org" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "GOHVY",
+        "operatingSystem": "Web",
+        "applicationCategory": "HealthApplication",
+        "description": "Heavy duty training app: high-intensity training with one set to failure, three sessions a week, and automatic weight progression.",
+        "url": "https://app.gohvy.com",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "GOHVY Standard is free forever. GOHVY Pro adds Workout Analysis and the MILO AI coach."
+        }
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
@@ -259,6 +299,14 @@
       line-height: 1;
       margin-bottom: 1.2rem;
     }
+
+    .section-body a {
+      color: var(--amber);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .section-body a:hover { color: #ffba3f; }
 
     .section-body {
       font-size: 1rem;
@@ -561,16 +609,16 @@
 
   <!-- HERO -->
   <section class="hero">
-    <p class="hero-eyebrow">High-Intensity Training App</p>
+    <p class="hero-eyebrow">The Heavy Duty Training App</p>
     <h1 class="hero-title">
       GO<span class="hvy">HVY</span>
       <span class="line2">One set. Absolute failure. Guaranteed Results.</span>
     </h1>
     <p class="hero-tagline">Not for those who count sets. For those who make sets count.</p>
     <p class="hero-sub">
-      Three focused sessions a week. One heavy duty set per exercise.
-      No fluff. No gamification. Just progressive overload to maximum mass —
-      with less time in the gym.
+      High-intensity training, done properly: three focused sessions a week,
+      one heavy duty set per exercise. No fluff. No gamification. Just
+      progressive overload to maximum mass — with less time in the gym.
     </p>
     <div class="store-buttons" id="download">
       <a href="https://app.gohvy.com" class="store-btn" aria-label="Start training free">
@@ -588,7 +636,7 @@
   <section class="section">
     <p class="section-eyebrow">The Protocol</p>
     <h2 class="section-title">Maximum Mass.<br>Minimum Volume.</h2>
-    <p class="section-body">Inspired by the Heavy Duty methodology — the same protocol used to build the most complete physiques in bodybuilding history. GOHVY enforces every principle automatically.</p>
+    <p class="section-body">Inspired by Mike Mentzer’s Heavy Duty methodology — the high-intensity training protocol behind the most complete physiques in bodybuilding history. GOHVY enforces every principle automatically.</p>
 
     <div class="pillars">
       <div class="pillar">
@@ -624,17 +672,17 @@
 
     <div class="tracks-grid">
       <div class="track-card" data-track="A">
-        <img class="track-icon" src="images/tracks/shoulder.png" alt="" loading="lazy" width="48" height="48" />
+        <img class="track-icon" src="images/tracks/shoulder.png" alt="Shoulders and chest workout icon" loading="lazy" width="48" height="48" />
         <p class="track-label">Workout A &mdash; Monday*</p>
         <h3 class="track-name">Shoulders / Chest</h3>
       </div>
       <div class="track-card" data-track="B">
-        <img class="track-icon" src="images/tracks/back.png" alt="" loading="lazy" width="48" height="48" />
+        <img class="track-icon" src="images/tracks/back.png" alt="Back and arms workout icon" loading="lazy" width="48" height="48" />
         <p class="track-label">Workout B &mdash; Wednesday*</p>
         <h3 class="track-name">Back / Arms</h3>
       </div>
       <div class="track-card" data-track="C">
-        <img class="track-icon" src="images/tracks/legs.png" alt="" loading="lazy" width="48" height="48" />
+        <img class="track-icon" src="images/tracks/legs.png" alt="Legs workout icon" loading="lazy" width="48" height="48" />
         <p class="track-label">Workout C &mdash; Friday*</p>
         <h3 class="track-name">Legs</h3>
       </div>
@@ -692,6 +740,15 @@
       </div>
     </div>
   </div>
+
+  <hr class="divider" />
+
+  <!-- HEAVY DUTY METHOD -->
+  <section class="section">
+    <p class="section-eyebrow">The Lineage</p>
+    <h2 class="section-title">What Is Heavy Duty Training?</h2>
+    <p class="section-body">Heavy Duty is the high-intensity training (HIT) method developed by Mike Mentzer: brief, infrequent workouts where a single working set is taken to absolute muscular failure, followed by real recovery. Where conventional programs chase volume, Heavy Duty chases intensity — one honest set outworks a dozen casual ones. GOHVY turns that philosophy into software: it schedules your three weekly sessions, enforces recovery between them, and calculates every weight increase for you. New to the method? Start with <a href="/insights/what-is-heavy-duty-training">What Is Heavy Duty Training?</a>, see <a href="/insights/mike-mentzer-heavy-duty-workout">Mike Mentzer&rsquo;s Heavy Duty workout explained</a>, or read <a href="/insights/one-set-to-failure">why one set to failure beats endless volume</a>.</p>
+  </section>
 
   <!-- FINAL CTA -->
   <section class="final-cta">

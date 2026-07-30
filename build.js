@@ -66,7 +66,7 @@ const ctaBox = `    <div class="summary" style="margin-top:3rem;">
       <a href="https://app.gohvy.com">Start training at app.gohvy.com</a>.
     </div>`;
 
-function page({ title, description, canonical, eyebrow, h1, dateLine, bodyHtml, jsonLd }) {
+function page({ title, description, canonical, eyebrow, h1, dateLine, bodyHtml, jsonLd, ogType = 'article' }) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,11 +76,16 @@ function page({ title, description, canonical, eyebrow, h1, dateLine, bodyHtml, 
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(description)}" />
   <link rel="canonical" href="${canonical}" />
-  <meta property="og:type" content="article" />
+  <meta property="og:type" content="${ogType}" />
   <meta property="og:site_name" content="GOHVY" />
   <meta property="og:title" content="${esc(title)}" />
   <meta property="og:description" content="${esc(description)}" />
   <meta property="og:url" content="${canonical}" />
+  <meta property="og:image" content="${SITE}/images/og-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="${esc(title)}" />
+  <meta name="twitter:description" content="${esc(description)}" />
+  <meta name="twitter:image" content="${SITE}/images/og-card.png" />
 ${fontLinks}
 ${jsonLd ? `  <script type="application/ld+json">${jsonLd}</script>` : ''}
   ${styleBlock}
@@ -128,6 +133,8 @@ for (const file of fs.readdirSync(SRC).filter((f) => f.endsWith('.md')).sort()) 
     headline: data.title,
     description: data.description,
     datePublished: data.date,
+    dateModified: data.updated || data.date,
+    image: `${SITE}/images/og-card.png`,
     author: { '@type': 'Organization', name: 'GOHVY' },
     publisher: { '@type': 'Organization', name: 'GOHVY', url: SITE },
     mainEntityOfPage: url,
@@ -161,14 +168,30 @@ fs.writeFileSync(path.join(OUT, 'insights', 'index.html'), page({
   h1: 'Insights',
   dateLine: null,
   bodyHtml: cards,
-  jsonLd: null,
+  ogType: 'website',
+  jsonLd: JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'GOHVY Insights',
+    url: `${SITE}/insights/`,
+    isPartOf: { '@type': 'WebSite', name: 'GOHVY', url: SITE },
+    hasPart: articles.map((a) => ({
+      '@type': 'Article', headline: a.title, url: a.url,
+    })),
+  }),
 }));
 
 // Sitemap.
-const urls = [`${SITE}/`, `${SITE}/insights/`, ...articles.map((a) => a.url),
-  `${SITE}/privacy`, `${SITE}/terms`];
+const today = new Date().toISOString().slice(0, 10);
+const urls = [
+  { loc: `${SITE}/`, lastmod: today },
+  { loc: `${SITE}/insights/`, lastmod: today },
+  ...articles.map((a) => ({ loc: a.url, lastmod: (a.updated || a.date).slice(0, 10) })),
+  { loc: `${SITE}/privacy`, lastmod: today },
+  { loc: `${SITE}/terms`, lastmod: today },
+];
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-  urls.map((u) => `  <url><loc>${u}</loc></url>`).join('\n') + '\n</urlset>\n');
+  urls.map((u) => `  <url><loc>${u.loc}</loc><lastmod>${u.lastmod}</lastmod></url>`).join('\n') + '\n</urlset>\n');
 
 console.log(`Built ${articles.length} articles -> ${OUT}/`);

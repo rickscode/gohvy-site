@@ -6,7 +6,7 @@ description: The high-intensity method that builds maximum mass from three short
 
 Walk into any gym and you will see the same thing: people doing four or five sets per exercise, five or six exercises per body part, five days a week. Most of them look the same year after year.
 
-Heavy Duty is the opposite bet. Popularized by Mike Mentzer in the late 1970s, it argues that **intensity — not volume — is the stimulus that forces a muscle to grow**, and that everything beyond the growth stimulus is not just wasted effort but actively harmful, because it eats into the recovery your body needs to actually build the muscle.
+Heavy Duty is the opposite bet. Popularized by [Mike Mentzer](/insights/mike-mentzer-heavy-duty-workout) in the late 1970s, it argues that **intensity — not volume — is the stimulus that forces a muscle to grow**, and that everything beyond the growth stimulus is not just wasted effort but actively harmful, because it eats into the recovery your body needs to actually build the muscle.
 
 ## The core idea
 
@@ -33,6 +33,8 @@ The method is simple. Executing it honestly is not:
 - Failure has to be measured against your logged numbers, not against how the set felt.
 - The rest days have to be enforced, because motivated lifters are precisely the people who cannot sit still.
 
-That bookkeeping is what GOHVY automates: it prescribes the working weight, logs the set, decides progression from your reps (8+ means the weight goes up, 3 or fewer triggers a deload), and locks the next session until you have recovered. You bring the effort; the app enforces the method.
+That bookkeeping is what [GOHVY](/) automates: it prescribes the working weight, logs the set, decides progression from your reps (8+ means the weight goes up, 3 or fewer triggers a deload), and locks the next session until you have recovered. You bring the effort; the app enforces the method.
 
 The result is the least time-expensive way to train for mass that has ever been devised: three sessions, a handful of working sets each, every one of them meaning something.
+
+Go deeper: [Mike Mentzer's Heavy Duty Workout, Explained](/insights/mike-mentzer-heavy-duty-workout) covers the original routine in detail, [Why One Set to Failure Beats Endless Volume](/insights/one-set-to-failure) makes the case for the single working set, and [The 3-Day Workout Split](/insights/three-day-split) shows how to lay the week out.

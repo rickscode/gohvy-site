@@ -28,6 +28,6 @@ And because MILO is grounded in your actual training history, you can ask it rea
 
 ## One set. A growing bull. Nothing else.
 
-Heavy Duty training and Milo's calf are the same philosophy from opposite ends of history: one hard, progressive stimulus, then recovery, then a slightly heavier one. GOHVY automates the whole loop — MILO tracks the load, the app enforces the recovery.
+[Heavy Duty training](/insights/what-is-heavy-duty-training) and Milo's calf are the same philosophy from opposite ends of history: one hard, progressive stimulus, then recovery, then a slightly heavier one. GOHVY automates the whole loop — MILO tracks the load, the app enforces the recovery.
 
-Your bull is waiting.
+Your bull is waiting — [start training free](https://app.gohvy.com).
