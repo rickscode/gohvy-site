@@ -44,7 +44,10 @@ const fontLinks = `  <link rel="preconnect" href="https://fonts.googleapis.com" 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />`;
 
-const favicon = `<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000000'/><text y='.9em' font-size='85' font-family='Arial Black,sans-serif' font-weight='900' fill='%23f5a623' x='10'>G</text></svg>" />`;
+const favicon = `<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png" />
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />`;
 
 const nav = `  <nav>
     <a class="nav-logo" href="/">GO<span>HVY</span></a>
@@ -113,7 +116,7 @@ fs.mkdirSync(path.join(OUT, 'insights'), { recursive: true });
 
 // Static passthrough (files + admin/, images/ if present).
 const statics = ['index.html', 'privacy.html', 'terms.html', 'robots.txt',
-  'google8bd4edf88f4c53d3.html'];
+  'favicon.ico', 'google8bd4edf88f4c53d3.html'];
 for (const file of statics) {
   if (fs.existsSync(file)) fs.copyFileSync(file, path.join(OUT, file));
 }
