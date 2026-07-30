@@ -338,6 +338,17 @@
       pointer-events: none;
     }
 
+    .track-icon {
+      display: block;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px;
+      background: rgba(255,255,255,0.02);
+    }
+
     .track-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
@@ -613,14 +624,17 @@
 
     <div class="tracks-grid">
       <div class="track-card" data-track="A">
+        <img class="track-icon" src="images/tracks/shoulder.png" alt="" loading="lazy" width="48" height="48" />
         <p class="track-label">Workout A &mdash; Monday*</p>
         <h3 class="track-name">Shoulders / Chest</h3>
       </div>
       <div class="track-card" data-track="B">
+        <img class="track-icon" src="images/tracks/back.png" alt="" loading="lazy" width="48" height="48" />
         <p class="track-label">Workout B &mdash; Wednesday*</p>
         <h3 class="track-name">Back / Arms</h3>
       </div>
       <div class="track-card" data-track="C">
+        <img class="track-icon" src="images/tracks/legs.png" alt="" loading="lazy" width="48" height="48" />
         <p class="track-label">Workout C &mdash; Friday*</p>
         <h3 class="track-name">Legs</h3>
       </div>
