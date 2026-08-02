@@ -116,7 +116,7 @@ fs.mkdirSync(path.join(OUT, 'insights'), { recursive: true });
 
 // Static passthrough (files + admin/, images/ if present).
 const statics = ['index.html', 'privacy.html', 'terms.html', 'robots.txt',
-  'favicon.ico', 'google8bd4edf88f4c53d3.html'];
+  'favicon.ico', 'google8bd4edf88f4c53d3.html', '_headers'];
 for (const file of statics) {
   if (fs.existsSync(file)) fs.copyFileSync(file, path.join(OUT, file));
 }
