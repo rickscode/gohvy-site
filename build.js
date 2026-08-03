@@ -52,6 +52,7 @@ const favicon = `<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 const nav = `  <nav>
     <a class="nav-logo" href="/">GO<span>HVY</span></a>
     <div style="display:flex;align-items:center;gap:1.6rem;">
+      <a href="/pricing" style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--text);text-decoration:none;">Pricing</a>
       <a href="/insights/" style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--text);text-decoration:none;">Insights</a>
       <a href="https://app.gohvy.com" style="display:inline-block;padding:0.55rem 1.4rem;background:var(--amber);color:var(--black);font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Start Training</a>
     </div>
@@ -59,7 +60,7 @@ const nav = `  <nav>
 
 const footer = `  <footer>
     <div class="footer-logo">GOHVY</div>
-    <p class="footer-copy">© 2026 GOHVY. All rights reserved. gohvy.com · <a href="/" style="color: var(--muted);">Home</a> · <a href="/insights/" style="color: var(--muted);">Insights</a> · <a href="/privacy" style="color: var(--muted);">Privacy</a> · <a href="/terms" style="color: var(--muted);">Terms</a></p>
+    <p class="footer-copy">© 2026 GOHVY. All rights reserved. gohvy.com · <a href="/" style="color: var(--muted);">Home</a> · <a href="/insights/" style="color: var(--muted);">Insights</a> · <a href="/pricing" style="color: var(--muted);">Pricing</a> · <a href="/privacy" style="color: var(--muted);">Privacy</a> · <a href="/terms" style="color: var(--muted);">Terms</a></p>
   </footer>`;
 
 const ctaBox = `    <div class="summary" style="margin-top:3rem;">
@@ -116,7 +117,7 @@ fs.mkdirSync(path.join(OUT, 'insights'), { recursive: true });
 
 // Static passthrough (files + admin/, images/ if present).
 const statics = ['index.html', 'privacy.html', 'terms.html', 'robots.txt',
-  'favicon.ico', 'google8bd4edf88f4c53d3.html', '_headers'];
+  'favicon.ico', 'google8bd4edf88f4c53d3.html', '_headers', 'pricing.html'];
 for (const file of statics) {
   if (fs.existsSync(file)) fs.copyFileSync(file, path.join(OUT, file));
 }
@@ -190,6 +191,7 @@ const urls = [
   { loc: `${SITE}/`, lastmod: today },
   { loc: `${SITE}/insights/`, lastmod: today },
   ...articles.map((a) => ({ loc: a.url, lastmod: (a.updated || a.date).slice(0, 10) })),
+  { loc: `${SITE}/pricing`, lastmod: today },
   { loc: `${SITE}/privacy`, lastmod: today },
   { loc: `${SITE}/terms`, lastmod: today },
 ];
