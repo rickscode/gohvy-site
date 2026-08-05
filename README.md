@@ -77,6 +77,9 @@ Current article -> primary keyword map:
 - three-day-split: 3 day workout split
 - one-set-to-failure: one set to failure
 - meet-milo: (brand)
+- training-to-failure: training to failure
+- progressive-overload: progressive overload
+- rest-days-recovery: rest days between workouts / recovery
 
 After publishing: sitemap.xml regenerates on build; resubmit in Google
 Search Console only after large batches, single posts get crawled from
